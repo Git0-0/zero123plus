@@ -5,3 +5,6 @@ tmp
 output*
 venv/*
 weights/*
+
+.*/
+.idea/
