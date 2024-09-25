@@ -1,9 +1,16 @@
 import os
+import warnings
+
 import torch
 import urllib.request
 import huggingface_hub
 from diffusers import DiffusionPipeline
 
+def init_loader():
+    warnings.simplefilter(action='ignore', category=FutureWarning)
+    os.environ['HTTP_PROXY'] = 'http://127.0.0.1:7890'
+    os.environ['HTTPS_PROXY'] = 'http://127.0.0.1:7890'
+    os.environ['HF_ENDPOINT'] = 'https://hf-mirror.com'
 
 if 'HF_TOKEN' in os.environ:
     huggingface_hub.login(os.environ['HF_TOKEN'])
